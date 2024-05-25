@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.milanaa_shop_api.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_backet"
+            app:destination="@id/navigation_backet" />
+        <action
+            android:id="@+id/action_navigation_home_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_backet"
+        android:name="com.example.milanaa_shop_api.ui.dashboard.BacketFragment"
+        android:label="Backet"
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_navigation_backet_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_backet_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_description"
+        android:name="com.example.milanaa_shop_api.description.DescriptionFragment"
+        android:label="Description"
+        tools:layout="@layout/fragment_description">
+        <argument
+            android:name="favorite"
+            app:argType="com.example.maksutovashop.model.ModelM" />
+        <action
+            android:id="@+id/action_navigation_description_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_descriptionFragment_to_navigation_home"
+        app:destination="@id/navigation_home" />
+
+    <action
+        android:id="@+id/action_navigation_basket_to_navigation_home"
+        app:destination="@id/navigation_home" />
+
+    <action
+        android:id="@+id/navigation_payment"
+        app:destination="@id/navigation_home" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.milanaa_shop_api.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+</navigation>
